@@ -47,12 +47,12 @@ if submitted:
         # Output file path
     ]
 
-    subprocess.run(cmd)
-    st.success("Video is downloaded and is ready to be saved")
-    video_path = "downloads/video.mp4"
-    with open(video_path, "rb") as file:
-        btn = st.download_button(label="Download",
-                                 data=file, file_name=f"{title}.mp4",
-                                 mime="video/mp4")
+    process = subprocess.run(cmd, capture_output=True, text=True)
+    if process.returncode == 0:
+        st.success("Video and audio have been merged successfully!")
+        with open("downloads/video.mp4", "rb") as file:
+            btn = st.download_button(label="Download", data=file, file_name=f"{title}.mp4", mime="video/mp4")
+    else:
+        st.error("Failed to merge video and audio: " + process.stderr)
 
     os.remove("downloads/video.mp4")
