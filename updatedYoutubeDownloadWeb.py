@@ -34,10 +34,20 @@ if submitted:
     audio = yt.streams.filter(only_audio=True).first()
     video.download(output_path='downloads', filename="Downloaded_video.mp4")
     audio.download(output_path='downloads', filename="Downloaded_video.mp3")
-    video_clip = VideoFileClip("downloads/Downloaded_video.mp4")
-    audio_clip = AudioFileClip("downloads/Downloaded_video.mp3")
-    final_clip = video_clip.set_audio(audio_clip)
-    final_clip.write_videofile("downloads/video.mp4", codec="libx264", audio_codec="aac")
+    cmd = [
+        'ffmpeg',
+        '-i', "downloads/Downloaded_video.mp4",  # Input video file
+        '-i', "downloads/Downloaded_video.mp3",  # Input audio file
+        '-c:v', 'copy',  # Copy the video stream
+        '-c:a', 'aac',  # Encode audio to AAC
+        '-strict', 'experimental',
+        '-map', '0:v:0',  # Map video stream from the first input
+        '-map', '1:a:0',
+        "downloads/video.mp4"  # Map audio stream from the second input
+        # Output file path
+    ]
+
+    subprocess.run(cmd)
     st.success("Video is downloaded and is ready to be saved")
     video_path = "downloads/video.mp4"
     with open(video_path, "rb") as file:
