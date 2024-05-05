@@ -23,9 +23,9 @@ if submitted:
 
     thumbnail_url = yt.thumbnail_url
 
-    #urllib.request.urlretrieve(thumbnail_url, filename="TEST.png")
-    #shutil.move("TEST.png", "thumbnail")
-    #st.image("thumbnail/TEST.png")
+    urllib.request.urlretrieve(thumbnail_url, filename="TEST.png")
+    shutil.move("TEST.png", "thumbnail")
+    st.image("thumbnail/TEST.png")
     st.text(f"Video Title: {title}")
     st.text(f"Video Author: {author}")
     os.remove("thumbnail/TEST.png")
