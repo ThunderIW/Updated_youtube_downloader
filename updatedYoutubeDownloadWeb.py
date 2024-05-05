@@ -36,7 +36,7 @@ if submitted:
     audio.download(output_path='downloads', filename="Downloaded_video.mp3")
     cmd = [
         'ffmpeg',
-        '-i', "downloads/downloaded_video.mp4",  # Input video file
+        '-i', "downloads/Downloaded_video.mp4",  # Input video file
         '-i', "downloads/Downloaded_video.mp3",  # Input audio file
         '-c:v', 'copy',  # Copy the video stream
         '-c:a', 'aac',  # Encode audio to AAC
