@@ -32,8 +32,8 @@ if submitted:
 
     video = yt.streams.filter(res="1080p").first()
     audio=yt.streams.filter(only_audio=True).first()
-    video.download(output_path='downloads/',filename="Downloaded_video.mp4")
-    audio.download(output_path='downloads/',filename="Downloaded_video.mp3")
+    video.download(output_path='downloads',filename="Downloaded_video.mp4")
+    audio.download(output_path='downloads',filename="Downloaded_video.mp3")
     video_clip=VideoFileClip("downloads/Downloaded_video.mp4")
     audio_clip=VideoFileClip("downloads/Downloaded_video.mp3")
     final_clip = video_clip.set_audio(audio_clip)
