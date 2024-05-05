@@ -37,9 +37,9 @@ if submitted:
     video_clip = VideoFileClip("downloads/Downloaded_video.mp4")
     audio_clip = AudioFileClip("downloads/Downloaded_video.mp3")
     final_clip = video_clip.set_audio(audio_clip)
-    final_clip.write_videofile("downloads/test.mp4", codec="libx264", audio_codec="aac")
+    final_clip.write_videofile("downloads/Output_video.mp4", codec="libx264", audio_codec="aac")
 
-    video_path = r"downloads\test.mp4"
+    video_path = r"downloads/Output_video.mp4"
     with open(video_path, "rb") as file:
         btn = st.download_button(label="Download",
                                  data=file, file_name=f"{title}.mp4",
