@@ -38,7 +38,7 @@ if submitted:
     audio_clip = AudioFileClip("downloads/Downloaded_video.mp3")
     final_clip = video_clip.set_audio(audio_clip)
     final_clip.write_videofile("downloads/video.mp4", codec="libx264", audio_codec="aac")
-
+    st.success("Video is downloaded and is ready to be saved")
     video_path = "downloads/video.mp4"
     with open(video_path, "rb") as file:
         btn = st.download_button(label="Download",
