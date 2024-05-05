@@ -44,7 +44,7 @@ if submitted:
         btn = st.download_button(label="Download",
                                  data=file, file_name=f"{title}.mp4",
                                  mime="video/mp4")
-
+    st.success("Video is ready to download")
     os.remove("downloads/test.mp4")
 
 
