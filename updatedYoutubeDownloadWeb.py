@@ -45,4 +45,4 @@ if submitted:
                                  data=file, file_name=f"{title}.mp4",
                                  mime="video/mp4")
 
-    os.remove("downloads/test.mp4")
+    os.remove("downloads/video.mp4")
