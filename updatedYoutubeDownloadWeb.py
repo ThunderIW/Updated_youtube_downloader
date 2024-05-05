@@ -45,6 +45,6 @@ if submitted:
                                  data=file, file_name=f"{title}.mp4",
                                  mime="video/mp4")
     st.success("Video is ready to download")
-    os.remove("downloads/test.mp4")
+    os.remove("downloads/Output_video.mp4")
 
 
