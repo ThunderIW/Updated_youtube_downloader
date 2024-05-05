@@ -35,7 +35,7 @@ if submitted:
     video.download(output_path='downloads',filename="Downloaded_video.mp4")
     audio.download(output_path='downloads',filename="Downloaded_video.mp3")
     video_clip=VideoFileClip("downloads/Downloaded_video.mp4")
-    audio_clip=VideoFileClip("downloads/Downloaded_video.mp3")
+    audio_clip=AudioFileClip("downloads/Downloaded_video.mp3")
     final_clip = video_clip.set_audio(audio_clip)
     final_clip.write_videofile("downloads/test.mp4", codec="libx264", audio_codec="aac")
 
